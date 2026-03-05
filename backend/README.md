@@ -40,31 +40,31 @@ You will not need to create your own MongoDB connection string.
 
 Follow these steps after cloning the repo:
 
-### 1. Install Node.js  
+### 1. Install Node.js
 Make sure Node.js (version 18 or higher) is installed on your computer.  
-Check with: node -v
+Check your version with:
+node -v
 
-### 2. Navigate to the backend folder  
+### 2. Navigate to the backend folder
 From the project root:
 cd backend
 
-### 3. Install dependencies  
-Run: npm install
+### 3. Install dependencies
+Run:
+npm install
 
-### 4. Add the `.env` file  
+### 4. Add the `.env` file
 I will send you the `.env` file privately.  
 Place it inside the `backend/` folder.
 
 You do **not** need to install MongoDB locally.  
-You do **not** need your own Atlas account.  
+You do **not** need your own MongoDB Atlas account.  
 The shared connection string already works for all teammates.
 
-### 5. Start the backend  
-Run: node src/server.js
-
+### 5. Start the backend
+Run:
+node src/server.js
 
 If everything is correct, you should see:
-
 Server running on port 3000
 Connected to MongoDB
-
