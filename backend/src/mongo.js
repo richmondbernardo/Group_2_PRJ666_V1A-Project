@@ -1,14 +1,15 @@
-import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-let client;
-let db;
+export const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      dbName: "superfrypos"   
+    });
 
-export async function connectToMongo() {
-  if (!client) {
-    client = new MongoClient(process.env.MONGO_URI);
-    await client.connect();
-    db = client.db("superfrypos");
     console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
   }
-  return db;
-}
+};
