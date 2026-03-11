@@ -85,6 +85,7 @@ Returns the full menu grouped by category.
 GET /menu
 
 ### Example Response
+```json
 [
   {
     "category": {
@@ -106,6 +107,7 @@ GET /menu
     ]
   }
 ]
+```
 
 ### Frontend Usage
 - Render categories  
@@ -120,6 +122,7 @@ GET /menu
 POST /orders
 
 ### Request Body
+```json
 {
   "table": "T1",
   "paymentMethod": "card",
@@ -132,8 +135,9 @@ POST /orders
     }
   ]
 }
-
+```
 ### Example Response
+```json
 {
   "message": "Order created",
   "orderID": "ORD-20260311022642-WK0BY",
@@ -163,7 +167,7 @@ POST /orders
     }
   ]
 }
-
+```
 ### Frontend Usage
 - Call this when user checks out  
 - Use `orderID` to show confirmation  
@@ -179,6 +183,7 @@ Returns all orders with items and options rebuilt.
 GET /orders/history
 
 ### Example Response
+```json
 [
   {
     "orderID": "ORD-20260311022642-WK0BY",
@@ -196,7 +201,7 @@ GET /orders/history
     ]
   }
 ]
-
+```
 ### Frontend Usage
 - Admin dashboard  
 - Order history page  
@@ -215,17 +220,19 @@ Example:
 PATCH /orders/ORD-20260311022642-WK0BY/status
 
 ### Request Body
+```json
 {
   "status": "preparing"
 }
-
+```
 ### Example Response
+```json
 {
   "message": "Order status updated",
   "orderID": "ORD-20260311022642-WK0BY",
   "newStatus": "preparing"
 }
-
+```
 ### Frontend Usage
 - Kitchen marks order as preparing  
 - Admin marks order as ready or completed  
@@ -236,14 +243,16 @@ PATCH /orders/ORD-20260311022642-WK0BY/status
 #  5. Data Model Overview (Frontend‑Friendly)
 
 ### Menu Category
+```json
 {
   "id": "cat001",
   "name": "Burgers",
   "description": "All burger items",
   "sortOrder": 1
 }
-
+```
 ### Menu Item
+```json
 {
   "id": "burger001",
   "name": "Classic Burger",
@@ -253,14 +262,15 @@ PATCH /orders/ORD-20260311022642-WK0BY/status
   "isAvailable": true,
   "sortOrder": 1
 }
-
+```
 ### Order Item
+```json
 {
   "menuItemId": "burger001",
   "quantity": 2,
   "options": ["noOnions", "extraCheese"]
 }
-
+```
 ---
 
 #  6. Quick Integration Summary
