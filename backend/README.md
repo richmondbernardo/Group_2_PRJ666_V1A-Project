@@ -214,11 +214,15 @@ GET /orders/history
 Updates an order’s status using its `orderID`.
 
 ### Endpoint
-PATCH /orders/:orderID/status
-
+PATCH 
+```json
+/orders/:orderID/status
+```
 Example:
-PATCH /orders/ORD-20260311022642-WK0BY/status
-
+PATCH 
+```json
+/orders/ORD-20260311022642-WK0BY/status
+```
 ### Request Body
 ```json
 {
