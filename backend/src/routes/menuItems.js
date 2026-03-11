@@ -1,24 +1,32 @@
 import express from "express";
-import MenuItem from "../models/menuItem.js";
+import mongoose from "mongoose";
+const MenuItem = mongoose.model("menuItem");
+
+
+
 
 const router = express.Router();
 
 // GET all menu items
 router.get("/", async (req, res) => {
-    try {
-        const items = await MenuItem.find();
-        res.json(items);
-    } catch (err) {
-        console.error("MenuItems GET error:", err);
-        res.status(500).json({ error: "Failed to fetch menu items" });
-    }
+  try {
+    const items = await MenuItem.find()
+      .populate("category")
+      .lean(); 
+
+    res.json(items);
+  } catch (err) {
+    console.error("MenuItems GET error:", err);
+    res.status(500).json({ error: "Failed to fetch menu items" });
+  }
 });
+
 
 
 // GET single menu item
 router.get("/:id", async (req, res) => {
   try {
-    const item = await MenuItem.findById(req.params.id);
+    const item = await MenuItem.findById(req.params.id).populate("category");
     if (!item) return res.status(404).json({ error: "Item not found" });
     res.json(item);
   } catch (err) {
